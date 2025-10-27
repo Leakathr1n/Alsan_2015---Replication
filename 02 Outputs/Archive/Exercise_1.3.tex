@@ -1,0 +1,17 @@
+\centering
+\begin{tabular}{lrrrrrrrrrr}
+\hline
+Variable & \multicolumn{4}{c}{TSE} & \multicolumn{4}{c}{TSE*Africa} & s^2 & Decision \\
+\cmidrule(lr){2-5} \cmidrule(lr){6-9}
+ & $\beta_2$ & $SE(\beta_2)$ & t-stat & p-value & $\gamma_2$ & $SE(\gamma_2)$ & t-stat & p-value & & \\\\
+\hline
+$animals$ & 0.04 & 0.05 & 0.73 & 0.47 & -0.21 & 0.07 & -3.21 & 0.00 & 0.16 & Fail to reject $H_0$ \\
+$intensive$ & -0.01 & 0.05 & -0.31 & 0.76 & -0.07 & 0.06 & -1.16 & 0.25 & 0.15 & Fail to reject $H_0$ \\
+$plow$ & 0.07 & 0.03 & 2.44 & 0.01 & -0.07 & 0.04 & -1.84 & 0.07 & 0.05 & Reject $H_0$ \\
+$female_ag$ & -0.04 & 0.06 & -0.69 & 0.49 & 0.25 & 0.08 & 3.05 & 0.00 & 0.20 & Fail to reject $H_0$ \\
+$slavery_indigenous$ & -0.00 & 0.05 & -0.06 & 0.95 & 0.11 & 0.06 & 1.70 & 0.09 & 0.13 & Fail to reject $H_0$ \\
+$central$ & 0.01 & 0.05 & 0.18 & 0.86 & -0.12 & 0.07 & -1.65 & 0.10 & 0.17 & Fail to reject $H_0$ \\
+\hline
+\end{tabular}
+\caption{OLS regression results with TSE and TSE*Africa interaction, including controls and interactions with Africa.}
+\label{tab:regression_results_africa}
