@@ -57,7 +57,7 @@ for i = 1:numel(depVars)
     end
 
     % Include africa*tse if precomputed
-    x = [x, africa_tse];  % assuming you have africa_tse variable
+    x = [x, africa_tse]; 
 
     % Remove rows with missing y or any missing x
     valid = ~isnan(y) & all(~isnan(x), 2);
@@ -234,11 +234,11 @@ for i = 1:numel(depVars)
     df_num = rank(R);        % numerator df
     df_den = n - k;          % denominator df
 
-    F = (R*beta_hat - r)' * inv(R * cov_beta * R') * (R*beta_hat - r) / df_num;
+    F = (R*beta_hat - r)' * inv(R * sigma2_hat * inv(X'*X) * R') * (R*beta_hat - r);
     p_value = 1 - fcdf(F, df_num, df_den);
 
     % Decision
-    decisionF = "Fail to reject $H_0$"; %write in latex format so that we can easily export
+    decisionF = "Fail to reject $H_0$"; % write in latex format so that we can easily export
     if p_value < alfa
         decisionF= "Reject $H_0$";
     end
