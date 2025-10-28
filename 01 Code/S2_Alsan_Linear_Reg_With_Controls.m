@@ -84,6 +84,7 @@ disp(results);
 
 %% Export the results
 % File name to save
+% File name to save
 outputFolder = fullfile('..','02 Outputs');
 filename = fullfile(outputFolder, 'Exercise_1.2.tex');  % full path
 fid = fopen(filename, 'w'); % Open file for writing
@@ -92,20 +93,20 @@ fid = fopen(filename, 'w'); % Open file for writing
 fprintf(fid, '\\centering\n');
 fprintf(fid, '\\begin{tabular}{lrrrrrrrl}\n');
 fprintf(fid, '\\hline\n');
-fprintf(fid, 'Variable & $b_2$ & $s^2$ & $SE(b_2)$ & t-stat & p-value & Decision & Observations \\\\\n');
+fprintf(fid, 'Variable & $b_2$ & $SE(b_2)$ & t-stat & p-value & Decision & $s^2$ & Observations \\\\\n');
 fprintf(fid, '\\hline\n');
 
 % Loop through results and write each row
 % Loop through results and write each row with variable names in $...$
 for i = 1:height(results)
-    fprintf(fid, '$%s$ & %.2f & %.2f & %.2f & %.2f & %.2f & %s & %d\\\\\n', ...
+    fprintf(fid, '$%s$ & %.3f & %.3f & %.3f & %.3f & %s & %.3f & %d\\\\\n', ...
         results.Variable(i), ...
         results.b2(i), ...
-        results.s2(i), ...
         results.SE_b2(i), ...
         results.t_stat(i), ...
         results.p_value(i), ...
         results.Decision(i), ...
+        results.s2(i), ...
         results.n_obs(i));  % only keep this one for Observations
 end
 
@@ -118,7 +119,6 @@ fprintf(fid, '\\label{tab:regression_results}\n');
 % Close the file
 fclose(fid);
 
-disp('LaTeX table exported!');
 
 %% Cross-check
 
